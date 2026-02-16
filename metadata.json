@@ -1,0 +1,5 @@
+{
+  "name": "EduPrompt - 學生短影音提示器",
+  "description": "一個專為學生設計的專業短影音文字提示播放平台，整合 Gemini AI 腳本優化功能，支援鏡像模式、自定義語速與字體大小。",
+  "requestFramePermissions": []
+}
