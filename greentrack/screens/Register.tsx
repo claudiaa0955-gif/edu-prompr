@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Sparkles, PartyPopper } from 'lucide-react';
+import { Camera, Sparkles } from 'lucide-react';
 import { Mascot, MascotSays } from '../components/Brand';
 import { Badge, Button, Card, OptionRow, Screen, StepProgress } from '../components/ui';
 import { BmiScale, DonutRing, LineChart, RulerH, RulerV, WheelPicker } from '../components/charts';
@@ -451,10 +451,7 @@ export function RegDone({ go }: StepProps) {
     <div className="relative flex h-full flex-col overflow-hidden bg-gradient-to-b from-purple-50 via-white to-aqua-50">
       <div className="h-11" />
       <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-        <span className="grid h-14 w-14 place-items-center rounded-full bg-leaf-400 text-white shadow-lift">
-          <PartyPopper size={26} />
-        </span>
-        <h1 className="mt-5 text-[34px] font-black leading-tight text-purple-700">目標已設定</h1>
+        <h1 className="text-[34px] font-black leading-tight text-purple-700">目標已設定</h1>
         <p className="mt-2 text-[13.5px] leading-relaxed text-ink-500">
           你的專屬減碳與健康計畫已經就緒，<br />從今天起，一起把改變記錄下來。
         </p>
