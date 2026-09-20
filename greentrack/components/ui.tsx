@@ -86,7 +86,7 @@ export function Button({ children, onClick, variant = 'primary', full = true, si
   size?: 'sm' | 'md' | 'lg'; disabled?: boolean; icon?: React.ReactNode; className?: string;
 }) {
   const v: Record<BtnVariant, string> = {
-    primary: 'bg-purple-500 text-white shadow-[0_6px_16px_-6px_rgba(91,83,130,.75)] hover:bg-purple-600',
+    primary: 'bg-purple-700 text-white shadow-[0_6px_16px_-6px_rgba(67,61,96,.75)] hover:bg-purple-800',
     soft:    'bg-purple-100 text-purple-700 hover:bg-purple-200',
     ghost:   'text-purple-600 hover:bg-purple-50',
     outline: 'border border-purple-300 text-purple-600 hover:bg-purple-50',
