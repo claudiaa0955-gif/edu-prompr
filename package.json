@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build:preview": "vite build --base=./ && node scripts/inline-preview.mjs dist/greentrack-preview.html"
+    "build:preview": "node scripts/build-preview.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.41.0",
