@@ -4,12 +4,21 @@ import { AppBar, Button, OptionRow, Screen } from '../components/ui';
 import { goals, loginMethods } from '../data/mock';
 import type { UserProfile } from '../types';
 
+/**
+ * 登入方式圖示。
+ * Apple 標誌必須以內嵌 SVG 繪製：U+F8FF（）是 Apple 私有造字區的字元，
+ * 只有 Apple 平台的系統字型才有對應字形，其他平台會渲染成空白。
+ */
 const brandIcon: Record<string, React.ReactNode> = {
   phone: <span className="text-[15px]">📱</span>,
   google: <span className="font-num text-[15px] font-black text-[#4285F4]">G</span>,
   line: <span className="text-[13px] font-black text-[#06C755]">LINE</span>,
   mail: <span className="text-[15px]">✉️</span>,
-  apple: <span className="text-[15px]"></span>,
+  apple: (
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="#000000" aria-hidden focusable="false">
+      <path d="M16.365 12.78c.026 2.83 2.483 3.772 2.51 3.784-.02.066-.392 1.343-1.294 2.66-.78 1.14-1.59 2.274-2.865 2.297-1.253.023-1.656-.743-3.088-.743-1.432 0-1.88.72-3.066.766-1.231.047-2.169-1.232-2.955-2.367-1.607-2.322-2.835-6.562-1.186-9.425.819-1.422 2.283-2.322 3.871-2.345 1.209-.023 2.35.813 3.089.813.739 0 2.126-1.005 3.584-.858.61.025 2.323.246 3.423 1.855-.088.055-2.043 1.193-2.023 3.563M14.02 4.548C14.673 3.757 15.113 2.656 14.993 1.56c-.942.038-2.082.628-2.757 1.418-.605.7-1.135 1.82-.992 2.895 1.05.081 2.123-.534 2.776-1.325" />
+    </svg>
+  ),
   facebook: <span className="font-num text-[15px] font-black text-[#1877F2]">f</span>,
 };
 
