@@ -74,15 +74,17 @@ export function Gauge({ value, max, label, unit, color = '#8B82AD', size = 128 }
   const pct = Math.min(1, value / max);
   const r = 46, c = Math.PI * r;
   return (
-    <div className="flex flex-col items-center" style={{ width: size }}>
-      <svg viewBox="0 0 110 62" style={{ width: size }} role="img" aria-label={`${label} ${value} ${unit}`}>
+    /* 以 maxWidth 取代固定寬度：多個儀表板並排時可收縮，不會溢出卡片 */
+    <div className="flex w-full flex-col items-center" style={{ maxWidth: size }}>
+      <svg viewBox="0 0 110 62" className="w-full" role="img" aria-label={`${label} ${value} ${unit}`}>
         <path d="M9 55a46 46 0 0 1 92 0" fill="none" stroke="#EBE9F1" strokeWidth="9" strokeLinecap="round" />
         <path d="M9 55a46 46 0 0 1 92 0" fill="none" stroke={color} strokeWidth="9" strokeLinecap="round"
               strokeDasharray={`${c * pct} ${c}`} style={{ transition: 'stroke-dasharray .8s cubic-bezier(.22,1,.36,1)' }} />
       </svg>
-      <div className="-mt-5 text-center">
-        <div className="font-num text-[20px] font-extrabold leading-none tabular-nums text-ink-900">{value}</div>
-        <div className="text-[10px] text-ink-400">{unit}</div>
+      {/* 數值置於半圓內，字級須小於弧線內徑，否則會壓到弧線 */}
+      <div className="-mt-[17px] w-full text-center">
+        <div className="font-num text-[17px] font-extrabold leading-none tabular-nums text-ink-900">{value}</div>
+        <div className="text-[9.5px] leading-tight text-ink-400">{unit}</div>
         <div className="mt-1 text-[11px] font-bold text-ink-700">{label}</div>
       </div>
     </div>

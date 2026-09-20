@@ -485,7 +485,7 @@ export function CarbonVisual({ go }: { go: (id: string) => void }) {
         <div className="flex justify-between">
           {gauges.map(g => (
             <button key={g.k} onClick={() => setOpen(open === g.k ? null : g.k)} className="flex-1">
-              <Gauge value={g.v} max={g.max} label={g.label} unit={g.unit} color={g.color} size={104} />
+              <Gauge value={g.v} max={g.max} label={g.label} unit={g.unit} color={g.color} size={94} />
             </button>
           ))}
         </div>
