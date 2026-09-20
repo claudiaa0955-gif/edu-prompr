@@ -449,15 +449,17 @@ export function RegPlan({ go, profile }: StepProps) {
 export function RegDone({ go }: StepProps) {
   return (
     <div className="relative flex h-full flex-col overflow-hidden bg-gradient-to-b from-purple-50 via-white to-aqua-50">
-      <div className="h-11" />
-      <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
-        <h1 className="text-[34px] font-black leading-tight text-purple-700">目標已設定</h1>
-        <p className="mt-2 text-[13.5px] leading-relaxed text-ink-500">
+      {/* shrink-0：狀態列佔位不可被壓縮，否則內容過高時標題會頂到動態島下方 */}
+      <div className="h-11 shrink-0" />
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-center px-8 pb-2 text-center">
+        <h1 className="shrink-0 text-[26px] font-black leading-tight text-purple-700">目標已設定</h1>
+        <p className="mt-2 shrink-0 text-[13px] leading-relaxed text-ink-500">
           你的專屬減碳與健康計畫已經就緒，<br />從今天起，一起把改變記錄下來。
         </p>
-        <Mascot pose="full" className="mt-4 w-52" float />
+        {/* 吉祥物可隨可用高度縮放，確保上方文字永遠不被裁切 */}
+        <Mascot pose="full" className="mt-4 min-h-0 w-52 max-w-full flex-1 object-contain" float />
       </div>
-      <div className="px-8 pb-10">
+      <div className="shrink-0 px-8 pb-10">
         <Button onClick={() => go('survey')}>加油</Button>
       </div>
     </div>
