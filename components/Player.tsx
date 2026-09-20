@@ -14,7 +14,7 @@ const Player: React.FC<PlayerProps> = ({ content, settings, onClose }) => {
   const [scrollPos, setScrollPos] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | undefined>(undefined);
 
   const animate = useCallback((time: number) => {
     if (isPlaying && scrollRef.current) {
