@@ -52,7 +52,7 @@ export function Onboarding({ go, index, setIndex }: {
         <div key={index} className="gt-fade flex h-full flex-col">
           {/* 視覺區塊撐滿可用高度，但設上限避免單卡過於空曠 */}
           <div className="flex min-h-0 flex-1 items-center">
-            <div className="h-full max-h-[372px] w-full">
+            <div className="h-full max-h-[292px] w-full">
               <OnboardArt kind={s.art} index={index} />
             </div>
           </div>
@@ -99,7 +99,7 @@ function OnboardArt({ kind, index }: { kind: string; index: number }) {
       <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-2.5">
         {items.map(i => (
           <div key={i.n} className={`${frame} flex flex-col p-3.5`} style={{ background: i.c }}>
-            <div className="flex flex-1 items-center justify-center text-[46px] leading-none">{i.emoji}</div>
+            <div className="flex flex-1 items-center justify-center text-[36px] leading-none">{i.emoji}</div>
             <div>
               <div className="text-[13px] font-bold text-ink-900">{i.n}</div>
               <div className="mt-1 inline-flex rounded-full bg-white/80 px-2 py-0.5 font-num text-[10px] font-bold text-purple-600">
@@ -125,7 +125,7 @@ function OnboardArt({ kind, index }: { kind: string; index: number }) {
                 {i.v} kg
               </span>
             </div>
-            <div className="flex flex-1 items-center justify-center text-[44px] leading-none">{i.emoji}</div>
+            <div className="flex flex-1 items-center justify-center text-[34px] leading-none">{i.emoji}</div>
             <div>
               <div className="text-[13px] font-bold text-ink-900">{i.n}</div>
               <div className="text-[10.5px] text-ink-400">CO₂e 已自動記錄</div>
@@ -139,7 +139,7 @@ function OnboardArt({ kind, index }: { kind: string; index: number }) {
     return (
       <div className={`${frame} flex h-full w-full flex-col justify-center bg-gradient-to-br from-aqua-100 to-purple-100 p-5`}>
         <div className="mx-auto grid w-full max-w-[230px] flex-1 place-items-center rounded-2xl border-[3px] border-dashed border-white bg-white/50">
-          <span className="text-[76px]">🥗</span>
+          <span className="text-[60px]">🥗</span>
         </div>
         <div className="mt-4 flex shrink-0 items-center justify-center gap-2">
           <span className="rounded-full bg-white px-3 py-1.5 text-[11px] font-bold text-aqua-600">辨識中…</span>
@@ -191,7 +191,7 @@ function OnboardArt({ kind, index }: { kind: string; index: number }) {
       <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-2.5">
         {goods.map(([e, n, p]) => (
           <div key={n} className={`${frame} flex flex-col items-center justify-center bg-leaf-50 p-3 text-center`}>
-            <div className="text-[40px]">{e}</div>
+            <div className="text-[32px]">{e}</div>
             <div className="mt-2 text-[12.5px] font-bold text-ink-900">{n}</div>
             <div className="mt-1 font-num text-[11.5px] font-bold text-leaf-600">{p} pts</div>
           </div>
