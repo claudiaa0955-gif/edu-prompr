@@ -189,7 +189,7 @@ export default function App() {
       </aside>
 
       {/* 右側預覽區 */}
-      <main className="flex flex-1 flex-col items-center justify-center px-6 py-10">
+      <main className="flex flex-1 flex-col items-center justify-center px-4 py-10 sm:px-6">
         <div className="mb-4 flex w-full max-w-[420px] items-center justify-between">
           <button onClick={() => setIndexOpen(v => !v)}
             className="hidden rounded-full border border-purple-200 bg-white px-3 py-1.5 text-[11.5px] font-bold text-purple-600 transition hover:bg-purple-50 lg:block">
@@ -203,7 +203,7 @@ export default function App() {
 
         {/* 手機外框 */}
         <div className="relative shrink-0 rounded-[46px] bg-ink-900 p-[11px] shadow-phone">
-          <div className="relative h-[812px] w-[375px] overflow-hidden rounded-[36px] bg-white">
+          <div className="relative h-[min(812px,calc(100dvh-11rem))] min-h-[560px] w-[min(375px,calc(100vw-3.5rem))] overflow-hidden rounded-[36px] bg-white">
             <span className="absolute left-1/2 top-2 z-20 h-6 w-[110px] -translate-x-1/2 rounded-full bg-ink-900" />
             {view()}
             {menuOpen && <HamburgerMenu go={go} close={() => setMenuOpen(false)} />}
