@@ -1,15 +1,23 @@
 import React from 'react';
 import logoUrl from '../assets/logo.webp';
+import logoOnDarkUrl from '../assets/logo-on-dark.webp';
 import logoMarkUrl from '../assets/logo-mark.webp';
 import mascotUrl from '../assets/mascot.webp';
 import mascotFigureUrl from '../assets/mascot-figure.webp';
 import mascotAvatarUrl from '../assets/mascot-avatar.webp';
 
-/** 品牌標誌 — 水滴 × 孔雀 × 葉片 */
-export function Logo({ className = '', size = 64 }: { className?: string; size?: number }) {
+/**
+ * 品牌標誌 — 水滴 × 孔雀 × 葉片。
+ *
+ * tone="onDark" 供深色／彩色底使用：字標改為白色，水滴與葉片維持原色。
+ * 白色字標是從原始標誌的像素重建（依覆蓋率轉為白色），並非以網頁字型重打，
+ * 因此手寫字體的外形與原標誌完全一致。
+ */
+export function Logo({ className = '', size = 64, tone = 'color' }:
+  { className?: string; size?: number; tone?: 'color' | 'onDark' }) {
   return (
     <img
-      src={logoUrl}
+      src={tone === 'onDark' ? logoOnDarkUrl : logoUrl}
       alt="Green Track 綠野追蹤 品牌標誌"
       width={size}
       height={size}

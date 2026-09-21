@@ -24,15 +24,9 @@ export function Home({ go, openMenu, tab, setTab }: {
             className="-ml-2 grid h-10 w-10 place-items-center rounded-full text-white transition hover:bg-white/15">
             <Menu size={22} />
           </button>
-          {/*
-            與啟動畫面（圖 4-1）使用同一枚完整標誌（含手寫字標）。
-            標誌本身為藍紫色，直接放在紫色漸層標頭上會糊成一片，
-            因此襯一層白色圓角底，維持可辨識度。
-          */}
+          {/* 與啟動畫面（圖 4-1）同一枚完整標誌，字標取白色版以直接置於漸層標頭上 */}
           <div className="flex flex-1 items-center">
-            <span className="inline-flex items-center rounded-xl bg-white/95 px-2.5 py-1 shadow-sm">
-              <Logo size={34} />
-            </span>
+            <Logo size={38} tone="onDark" />
           </div>
           <button aria-label="通知" className="grid h-10 w-10 place-items-center rounded-full text-white transition hover:bg-white/15">
             <Bell size={20} />
