@@ -232,20 +232,26 @@ export function WheelPicker({ value, onChange, options, suffix = '' }: {
   const idx = options.indexOf(value);
   const view = [-2, -1, 0, 1, 2].map(d => options[idx + d]);
   return (
-    <div className="relative select-none py-2">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-12 w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-purple-200 bg-white" />
-      <div className="relative flex flex-col items-center gap-1">
-        {view.map((v, i) => {
-          const center = i === 2;
-          return (
-            <button key={i} disabled={v == null} onClick={() => v != null && onChange(v)}
-              className={`font-num tabular-nums transition ${
-                center ? 'text-[30px] font-extrabold text-mauve-400'
-                       : Math.abs(i - 2) === 1 ? 'text-[19px] font-bold text-ink-300' : 'text-[15px] text-ink-200'}`}>
-              {v != null ? `${v}${suffix}` : ''}
-            </button>
-          );
-        })}
+    <div className="select-none">
+      {/*
+        選取框以滾輪本身為定位基準（而非包含滑桿的外層），
+        否則 top-1/2 會算進滑桿高度，框線就會落在中間項目下方。
+      */}
+      <div className="relative py-2">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-12 w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-purple-200 bg-white" />
+        <div className="relative flex flex-col items-center gap-1">
+          {view.map((v, i) => {
+            const center = i === 2;
+            return (
+              <button key={i} disabled={v == null} onClick={() => v != null && onChange(v)}
+                className={`flex h-auto items-center justify-center font-num leading-none tabular-nums transition ${
+                  center ? 'h-12 text-[30px] font-extrabold text-mauve-400'
+                         : Math.abs(i - 2) === 1 ? 'text-[19px] font-bold text-ink-300' : 'text-[15px] text-ink-200'}`}>
+                {v != null ? `${v}${suffix}` : ''}
+              </button>
+            );
+          })}
+        </div>
       </div>
       <input type="range" min={0} max={options.length - 1} value={Math.max(0, idx)} aria-label="出生年份"
              onChange={e => onChange(options[Number(e.target.value)])}
