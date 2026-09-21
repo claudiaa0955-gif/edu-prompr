@@ -3,7 +3,7 @@ import {
   Menu, Bell, TreeDeciduous, Footprints, Flame, X, MapPin, Navigation,
   Play, Square, TrendingDown, Info, ChevronRight,
 } from 'lucide-react';
-import { LogoMark, Mascot, MascotSays } from '../components/Brand';
+import { Logo, Mascot, MascotSays } from '../components/Brand';
 import {
   AppBar, Badge, BottomNav, Button, Card, Chip, Meter,
   Screen, SectionTitle, StatTile, StatusBar, Tabs,
@@ -24,9 +24,15 @@ export function Home({ go, openMenu, tab, setTab }: {
             className="-ml-2 grid h-10 w-10 place-items-center rounded-full text-white transition hover:bg-white/15">
             <Menu size={22} />
           </button>
-          <div className="flex flex-1 items-center gap-2">
-            <LogoMark size={24} />
-            <span className="font-brand text-xl text-white">Green Track</span>
+          {/*
+            與啟動畫面（圖 4-1）使用同一枚完整標誌（含手寫字標）。
+            標誌本身為藍紫色，直接放在紫色漸層標頭上會糊成一片，
+            因此襯一層白色圓角底，維持可辨識度。
+          */}
+          <div className="flex flex-1 items-center">
+            <span className="inline-flex items-center rounded-xl bg-white/95 px-2.5 py-1 shadow-sm">
+              <Logo size={34} />
+            </span>
           </div>
           <button aria-label="通知" className="grid h-10 w-10 place-items-center rounded-full text-white transition hover:bg-white/15">
             <Bell size={20} />
