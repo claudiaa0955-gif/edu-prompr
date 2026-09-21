@@ -18,6 +18,26 @@ export const defaultProfile: UserProfile = {
   channel: null,
 };
 
+/**
+ * 已填妥的示範資料 —— 介面設計總覽使用。
+ * 總覽是靜態平鋪、無法逐步操作，若沿用空白的 defaultProfile，
+ * 需選取才能啟用的「繼續」按鈕會停留在停用狀態（半透明），
+ * 與其他頁面的深紫主按鈕看起來不一致。
+ */
+export const sampleProfile: UserProfile = {
+  ...defaultProfile,
+  photo: 'mascot',
+  gender: '女性',
+  activity: 'moderate',
+  healthIssues: ['血糖'],
+  allergies: ['堅果'],
+  commute: ['步行', '捷運'],
+  dietPlan: 'lowcarb',
+  trackWillingness: '我會一直追蹤飲食',
+  goal: 'lose',
+  channel: 'Instagram',
+};
+
 /* 引導頁文案 — 對應論文圖 4-2 至 4-9 */
 export const onboardingSlides = [
   {

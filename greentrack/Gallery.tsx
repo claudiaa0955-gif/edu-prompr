@@ -1,7 +1,7 @@
 import React from 'react';
 import { LogoMark } from './components/Brand';
 import { FLOWS, HamburgerMenu, SCREENS, renderScreen, type Entry } from './registry';
-import { defaultProfile } from './data/mock';
+import { sampleProfile } from './data/mock';
 import { brand } from './theme';
 
 /**
@@ -34,7 +34,7 @@ const TILES: Tile[] = SCREENS.flatMap<Tile>(s => {
 function Thumb({ tile, scale, bezel }: { tile: Tile; scale: number; bezel: boolean }) {
   const noop = () => {};
   const ctx = {
-    go: noop, profile: defaultProfile, set: noop,
+    go: noop, profile: sampleProfile, set: noop,
     slide: 0, setSlide: noop,
     navTab: 'home', setNavTab: noop,
     pointsTab: tile.variant ?? 'overview', setPointsTab: noop,
