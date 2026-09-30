@@ -44,7 +44,7 @@ function Thumb({ tile, scale, bezel }: { tile: Tile; scale: number; bezel: boole
   };
   const pad = bezel ? 10 : 0;
   return (
-    <figure className="m-0 flex flex-col items-center gap-2 break-inside-avoid">
+    <figure className="m-0 flex break-inside-avoid flex-col items-center gap-2 print:mb-6 print:mr-5 print:inline-block print:align-top">
       <div
         style={{ width: (DEVICE_W + pad * 2) * scale, height: (DEVICE_H + pad * 2) * scale }}
         className="relative shrink-0"
@@ -129,13 +129,14 @@ export default function Gallery() {
           const tiles = TILES.filter(t => t.flow === flow.key);
           if (!tiles.length) return null;
           return (
-            <section key={flow.key} className="mt-12 first:mt-8">
-              <div className="mb-5 flex items-baseline gap-3 border-b border-ink-200 pb-2">
+            <section key={flow.key} className="mt-12 first:mt-8 print:mt-8">
+              <div className="mb-5 flex break-after-avoid items-baseline gap-3 border-b border-ink-200 pb-2">
                 <span className="h-3 w-3 shrink-0 rounded-full" style={{ background: flow.color }} />
                 <h2 className="text-[17px] font-black text-ink-900">{flow.label}</h2>
                 <span className="font-num text-[12px] text-ink-300">{tiles.length} 個畫面</span>
               </div>
-              <div className="flex flex-wrap gap-x-6 gap-y-8">
+              {/* 列印時改為 inline-block：flex 容器會使 break-inside-avoid 失效，整列會被分頁切斷 */}
+              <div className="flex flex-wrap gap-x-6 gap-y-8 print:block">
                 {tiles.map(t => (
                   <Thumb key={`${t.id}-${t.variant ?? t.fig}`} tile={t} scale={scale} bezel={bezel} />
                 ))}
