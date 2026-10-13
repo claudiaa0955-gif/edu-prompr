@@ -238,15 +238,17 @@ export function WheelPicker({ value, onChange, options, suffix = '' }: {
         否則 top-1/2 會算進滑桿高度，框線就會落在中間項目下方。
       */}
       <div className="relative py-2">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-12 w-40 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-purple-200 bg-white" />
-        <div className="relative flex flex-col items-center gap-1">
+        {/* 框線尺寸須留出內距，否則「2001 年」會貼到左右框邊 */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-[138px] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-purple-200 bg-white" />
+        {/* 列間距須大於框線與按鈕的高度差，否則上下年份會貼到選取框 */}
+        <div className="relative flex flex-col items-center gap-2.5">
           {view.map((v, i) => {
             const center = i === 2;
             return (
               <button key={i} disabled={v == null} onClick={() => v != null && onChange(v)}
-                className={`flex h-auto items-center justify-center font-num leading-none tabular-nums transition ${
-                  center ? 'h-12 text-[30px] font-extrabold text-mauve-400'
-                         : Math.abs(i - 2) === 1 ? 'text-[19px] font-bold text-ink-300' : 'text-[15px] text-ink-200'}`}>
+                className={`flex items-center justify-center font-num leading-none tabular-nums transition ${
+                  center ? 'h-10 text-[23px] font-extrabold text-mauve-400'
+                         : Math.abs(i - 2) === 1 ? 'text-[17px] font-bold text-ink-300' : 'text-[14px] text-ink-200'}`}>
                 {v != null ? `${v}${suffix}` : ''}
               </button>
             );
