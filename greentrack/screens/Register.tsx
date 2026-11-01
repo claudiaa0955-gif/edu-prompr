@@ -205,7 +205,9 @@ export function RegAi({ go, profile }: StepProps) {
           ))}
         </div>
       </div>
-      <div className="mt-5 flex justify-center rounded-3xl bg-ink-50 pt-4">
+      {/* 底色取吉祥物身上的藍紫與淡天藍（取樣值 #A898C8／#A8D8E8），
+          比其他吉祥物襯底亮一階（200 而非 100），但仍比身體色淺兩階，避免吉祥物融進背景。 */}
+      <div className="mt-5 flex justify-center rounded-3xl bg-gradient-to-br from-purple-200 to-aqua-200 pt-4">
         <Mascot pose="full" className="w-44" float />
       </div>
     </Step>
