@@ -8,7 +8,7 @@ import {
   AppBar, Badge, BottomNav, Button, Card, Chip, Meter,
   Screen, SectionTitle, StatTile, StatusBar, Tabs,
 } from '../components/ui';
-import { BarChart, Gauge, LineChart, Sparkline } from '../components/charts';
+import { BarChart, Gauge, LineChart } from '../components/charts';
 import { leaderboard, menuItems, todayStats, transports, weeklyCarbon, weeklyLabels } from '../data/mock';
 
 /* 圖 4-31　APP 主頁面 */
@@ -351,7 +351,6 @@ export function CarbonPlan({ go }: { go: (id: string) => void }) {
               <span className="text-[11px] font-bold opacity-80">kg CO₂e</span>
             </div>
           </div>
-          <Sparkline data={weeklyCarbon} />
         </div>
         <div className="mt-3 rounded-2xl bg-white/15 px-3 py-2 text-[11.5px] font-medium backdrop-blur">
           🌳 相當於種植 0.26 顆樹 · 距離本月目標還差 1.65 kg
