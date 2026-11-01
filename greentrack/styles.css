@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html, body {
+    margin: 0;
+    background: #EFEDF6;
+    color: #2E2A40;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Noto Sans TC', 'Figtree', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .gt-scroll::-webkit-scrollbar { width: 5px; }
+  .gt-scroll::-webkit-scrollbar-thumb { background: #D4CFE7; border-radius: 99px; }
+  .gt-scroll::-webkit-scrollbar-track { background: transparent; }
+}
+
+@keyframes gt-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+.gt-fade { animation: gt-fade .34s cubic-bezier(.22,1,.36,1) both; }
+
+@keyframes gt-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+.gt-float { animation: gt-float 4.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gt-fade, .gt-float { animation: none !important; }
+}
