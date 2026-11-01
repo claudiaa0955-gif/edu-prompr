@@ -185,8 +185,10 @@ export function RegAi({ go, profile }: StepProps) {
   return (
     <Step step={7} title="AI 為你完成第一次分析" sub="依據你的性別、年齡、身高體重與活動量即時計算"
           back="reg-activity" next="reg-target" go={go} cta="太好了，繼續">
-      <div className="rounded-3xl bg-gradient-to-br from-purple-500 to-aqua-300 p-5 text-white shadow-lift">
-        <div className="flex items-center gap-2 text-[12px] font-bold opacity-90">
+      {/* 底色取吉祥物身上的藍紫與淡天藍（取樣值 #B8A8D8／#A8D8E8），比原本的 purple-500 亮兩階。
+          底色一亮白字就撐不住對比，因此文字一律改深色；統計方塊的白色透明底也要加厚才看得見。 */}
+      <div className="rounded-3xl bg-gradient-to-br from-purple-300 to-aqua-200 p-5 text-ink-900 shadow-lift">
+        <div className="flex items-center gap-2 text-[12px] font-bold text-purple-800">
           <Sparkles size={15} /> AI 個人化分析
         </div>
         <p className="mt-3 text-[19px] font-black leading-snug">
@@ -198,16 +200,14 @@ export function RegAi({ go, profile }: StepProps) {
             { l: '建議熱量', v: '1,200' },
             { l: '預計週期', v: '8 週' },
           ].map(s => (
-            <div key={s.l} className="rounded-2xl bg-white/15 px-2 py-2.5 text-center backdrop-blur">
-              <div className="text-[10px] opacity-85">{s.l}</div>
+            <div key={s.l} className="rounded-2xl bg-white/60 px-2 py-2.5 text-center backdrop-blur">
+              <div className="text-[10px] text-ink-700">{s.l}</div>
               <div className="mt-0.5 font-num text-[16px] font-extrabold">{s.v}</div>
             </div>
           ))}
         </div>
       </div>
-      {/* 底色取吉祥物身上的藍紫與淡天藍（取樣值 #A898C8／#A8D8E8），
-          比其他吉祥物襯底亮一階（200 而非 100），但仍比身體色淺兩階，避免吉祥物融進背景。 */}
-      <div className="mt-5 flex justify-center rounded-3xl bg-gradient-to-br from-purple-200 to-aqua-200 pt-4">
+      <div className="mt-5 flex justify-center rounded-3xl bg-ink-50 pt-4">
         <Mascot pose="full" className="w-44" float />
       </div>
     </Step>
