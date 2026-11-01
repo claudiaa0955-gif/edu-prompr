@@ -43,10 +43,11 @@ export function Login({ go }: { go: (id: string) => void }) {
       <div className="mt-5 space-y-2.5">
         {loginMethods.map(m => (
           <button key={m.key} onClick={() => go('goal')}
-            className="flex w-full items-center gap-3 rounded-full border border-purple-200 bg-white px-4 py-3 text-left transition hover:border-purple-400 hover:bg-purple-50 active:scale-[.99]">
-            {/* 保留固定寬度容器讓各列文字對齊，但不加底色圓圈 */}
-            <span className="grid h-8 w-8 shrink-0 place-items-center">{brandIcon[m.key]}</span>
-            <span className="flex-1 text-[14px] font-bold text-ink-900">{m.label}</span>
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-purple-200 bg-white px-4 py-3 text-center transition hover:border-purple-400 hover:bg-purple-50 active:scale-[.99]">
+            {/* 置中對齊：圖示與文字成一組居中。
+                不可保留固定寬容器或 flex-1，兩者都會把文字推離按鈕中線。 */}
+            <span className="grid shrink-0 place-items-center">{brandIcon[m.key]}</span>
+            <span className="text-[14px] font-bold text-ink-900">{m.label}</span>
             <span className="text-[11px] text-ink-300">{m.hint}</span>
           </button>
         ))}
